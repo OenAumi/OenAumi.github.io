@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
+  <title>Gallery — Oen Aumi</title>
+  <meta name="description" content="Galeri karya: layout masonry responsif dengan JS.">
+  <link rel="icon" href="icon/Icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="icon/Icon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="icon/Icon.ico" alt="Logo Oen Aumi" width="24" height="24">
+      <span>Oen Aumi</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Buka menu">☰</button>
+    <nav id="site-nav" class="nav-drawer" aria-label="Navigasi utama">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <button class="scrim" hidden aria-hidden="true"></button>
+
+  <main>
+    <section class="masonry container" aria-label="Gallery masonry">
+      <!-- Tiap figure -->
+      <figure class="figure-badged">
+        <img src="icon/Gallery.webp" width="600" height="900" alt="Galeri 1" loading="lazy">
+        <figcaption>The Red Garuda</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery2.webp" width="600" height="500" alt="Galeri 2" loading="lazy">
+        <figcaption>Dummy</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery3.webp" width="600" height="700" alt="Galeri 3" loading="lazy">
+        <figcaption>Dummy 2</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery4.webp" width="600" height="800" alt="Galeri 4" loading="lazy">
+        <figcaption>Dummy 3</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery5.webp" width="600" height="650" alt="Galeri 5" loading="lazy">
+        <figcaption>Dummy 4</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery6.webp" width="600" height="400" alt="Galeri 6" loading="lazy">
+        <figcaption>Dummy 5</figcaption>
+      </figure>
+
+      <figure class="figure-badged">
+        <img src="icon/gallery7.webp" width="600" height="550" alt="Galeri 7" loading="lazy">
+        <figcaption>Dummy 6</figcaption>
+      </figure>
+    </section>
+  </main>
+  <footer class="site-footer">© 2025 Oen Aumi</footer>
+  <script src="scripts/main.js" defer></script>
+  <script src="scripts/pages.js" defer></script>
+
+
+</body>
+</html>

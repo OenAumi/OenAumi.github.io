@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
+  <title>Oen Aumi — Portfolio</title>
+  <meta name="description" content="Portofolio Oen Aumi — web cepat, ringan, dan elegan (vanilla HTML/CSS/JS).">
+  <meta name="theme-color" content="#0b67ff">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages.css">
+  <link rel="icon" href="icon/Icon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="icon/Icon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <img src="icon/Icon.ico" alt="Logo Oen Aumi" width="24" height="24">
+      <span>Oen Aumi</span>
+    </a>
+    
+    <!-- Update nav toggle -->
+    <button 
+      class="nav-toggle" 
+      aria-expanded="false" 
+      aria-controls="site-nav" 
+      aria-label="Toggle menu">
+      ☰
+    </button>
+    
+    <!-- Nav drawer -->
+    <nav id="site-nav" class="nav-drawer" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Scrim backdrop -->
+  <button class="scrim" hidden aria-hidden="true"></button>
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-text glass">
+        <h1>Hello <span class="accent">Human</span>, i am Oen Aumi</h1>
+        <p>This website for all my Creation</p>
+        <a class="btn" href="about.html">Dont push!!</a>
+      </div>
+      <picture class="hero-visual">
+        <img src="icon/Ilumi.webp" 
+             alt="Ilumi Hero Image" 
+             width="1280" 
+             height="960" 
+             fetchpriority="high">
+      </picture>
+    </section>
+    <!-- PREVIEW STRIP -->
+    <section class="rail-container">
+      <section class="rail">
+        <!-- Projects -->
+        <article class="rail-card">
+          <div class="rail-content">
+            <div class="rail-image">
+              <img src="icon/Project.webp" alt="Preview Projects">
+            </div>
+            <div class="rail-text">
+              <h2>Indanaya</h2>
+              <p>New Development app Projects!!!</p>
+              <a class="btn" href="projects.html">Lets go</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Gallery -->
+        <article class="rail-card">
+          <div class="rail-content">
+            <div class="rail-image">
+              <img src="icon/Gallery.webp" alt="Preview Gallery">
+            </div>
+            <div class="rail-text">
+              <h2>The Red Garuda</h2>
+              <p>New indanaya icon art </p>
+              <a class="btn" href="gallery.html">see it</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Books -->
+        <article class="rail-card">
+          <div class="rail-content">
+            <div class="rail-image">
+              <img src="icon/Book.webp" alt="Preview Books">
+            </div>
+            <div class="rail-text">
+              <h2>Manifesto Indanaya</h2>
+              <p>New book of Indanaya Concept</p>
+              <a class="btn" href="books.html">Read it </a>
+            </div>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">© 2025 Oen Aumi</footer>
+  <script src="scripts/main.js" defer></script>
+</body>
+</html>
