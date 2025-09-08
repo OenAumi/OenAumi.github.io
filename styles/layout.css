@@ -1,0 +1,446 @@
+/* Base layout improvements */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1920px; /* Standard 16:9 max-width */
+  margin: 0 auto;
+  padding-top: 64px; /* Header height */
+}
+
+.container {
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* Responsive container sizes */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 32px;
+    max-width: 1280px;
+  }
+}
+
+/* Header styling */
+.site-header {
+  position: fixed; 
+  inset: 0 0 auto 0; 
+  height: 64px; 
+  z-index: 1000;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  padding: 0 16px;
+  background: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(8px);
+  color: #ffffff; /* Text putih */
+  border-bottom: 1px solid #2a2a2a; /* Border lebih gelap */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Tambah shadow */
+}
+/* Brand styling */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: 8px 0;
+  color: #ffffff; /* Text putih */
+  text-decoration: none; /* Remove underline */
+}
+
+.brand img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.brand span {
+  font-size: 1.1rem;
+}
+
+/* Hover effect untuk brand */
+.brand:hover {
+  background: #1a1a1a; /* Hover abu-abu gelap */
+  border-radius: 12px;
+  opacity: 1; /* Hapus opacity hover lama */
+  transition: background 0.2s ease;
+}
+
+main{padding-top:64px}
+
+.nav-toggle{
+  min-height:var(--tap); padding:0 12px; border-radius:12px;
+  border:1px solid #2a2a2a; /* Border lebih gelap */
+  background:transparent; color:#ffffff; /* Icon putih */
+  cursor:pointer; z-index:1002
+}
+
+.nav-toggle:hover {
+  background: #1a1a1a; /* Hover abu-abu gelap */
+}
+
+/* Scrim with fixed layout */
+.scrim {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 900;
+  background: rgba(0,0,0,.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  border: none;
+}
+
+.scrim.open{opacity:1; visibility:visible}
+body.drawer-open{overflow:hidden; touch-action:none}
+
+/* Drawer mobile - diubah ke slide dari kiri */
+.nav-drawer {
+  position: fixed;
+  inset: 0 auto 0 0; /* Ubah posisi ke kiri */
+  width: 100%; /* Full width di mobile */
+  max-width: 320px; /* Max width untuk desktop */
+  height: 100vh; /* Full height */
+  padding: 80px 24px 24px;
+  background: #121212; /* Ubah ke hitam sama dengan header */
+  transform: translateX(-100%); /* Slide dari kiri */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1001;
+  overflow-y: auto;
+  box-shadow: 4px 0 16px rgba(0,0,0,0.5); /* Shadow lebih gelap */
+  border-right: 1px solid #2a2a2a; /* Border kanan */
+}
+
+.nav-drawer.open {
+  transform: translateX(0);
+}
+
+/* Nav items untuk mobile dan desktop */
+.nav-drawer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Sedikit lebih besar gap di mobile */
+}
+
+.nav-drawer a {
+  display: block;
+  padding: 16px;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  text-decoration: none; /* Remove underline */
+}
+
+.nav-drawer a:hover {
+  background: #1a1a1a;
+}
+
+.nav-drawer a[aria-current="page"] {
+  background: #242424;
+  font-weight: 500;
+}
+
+/* Hero section styling */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 64px);
+  display: grid;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button styling */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #FF0000; /* Red color like logo */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #cc0000;
+}
+
+.hero .accent{color:var(--accent)}
+.hero-visual img{border-radius:var(--radius); box-shadow:var(--shadow)}
+.glass{
+  background:rgba(255,255,255,.55); backdrop-filter:blur(10px);
+  border-radius:var(--radius); padding:16px 18px
+}
+@media (min-width:800px){
+  .hero{grid-template-columns:1.05fr .95fr; gap:40px; padding-block:40px}
+}
+
+/* Mobile hero styling */
+@media (max-width: 799px) {
+  .hero {
+    text-align: center;
+  }
+
+  .hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-text.glass {
+    margin: 16px;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 32px;
+  }
+}
+
+/* Desktop hero styling */
+@media (min-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 0;
+    padding-left: 64px; /* Add left padding */
+  }
+
+  .hero-visual {
+    height: 100% ;
+    width: 100%;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right; /* Align image to right */
+  }
+
+  .hero-text.glass {
+    margin: 0 48px; /* Keep horizontal margin for text */
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 48px;
+  }
+}
+
+/* Remove spacing between hero and rail */
+.rail-container {
+  margin-top: 0;
+  height: 350vh; /* Slightly reduced height */
+}
+
+/* Rail (projects/books) */
+.rail{
+  display:grid; grid-auto-flow:column; gap:16px; overflow-x:auto; padding:16px;
+  scroll-padding-inline:16px; scroll-snap-type:x proximity;
+}
+@media (min-width:800px){
+  .rail{ grid-auto-columns:min(88vw,880px); scroll-snap-type:x mandatory }
+}
+.rail .card{ scroll-snap-align:start; border-radius:16px; background:#1a1a1a; box-shadow:var(--shadow); padding:16px }
+.rail .card img{ border-radius:12px }
+
+@media (min-width: 800px) {
+  /* Rail container with horizontal scroll animation */
+  .rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 24px;
+    scroll-padding-inline: 24px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+
+  /* Animation keyframes */
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Gallery masonry */
+.masonry{ columns:2 200px; column-gap:12px; padding:16px }
+@media (min-width:480px){ .masonry{ columns:2 240px } }
+@media (min-width:800px){ .masonry{ columns:3 240px } }
+@media (min-width:1200px){ .masonry{ columns:4 240px } }
+.masonry figure{
+  break-inside:avoid; margin:0 0 12px; background:#1a1a1a; border-radius:12px; overflow:hidden; box-shadow:var(--shadow)
+}
+.masonry img{ display:block; inline-size:100%; block-size:auto }
+.figure-badged{ position:relative }
+.badgebag{
+  position:absolute; inset:auto 8px 8px auto; display:flex; gap:6px; padding:6px 8px;
+  border-radius:999px; background:rgba(26, 26, 26, 0.8); backdrop-filter:blur(6px); color:var(--ink)
+}
+
+/* About */
+.about{ display:grid; gap:20px; align-items:center; padding-block:24px }
+@media (min-width:800px){ .about{ grid-template-columns:1.1fr .9fr; padding-block:40px } }
+.social{ display:flex; gap:8px; margin-block:8px }
+
+.hero-text {
+  background: rgba(255,255,255,.85);
+  backdrop-filter: blur(12px);
+}
+
+/* Footer */
+.site-footer{
+  padding:32px 16px calc(24px + env(safe-area-inset-bottom));
+  text-align:center; color:var(--muted)
+}
+
+/* Desktop navigation styling */
+@media (min-width: 800px) {
+  .site-header {
+    padding: 0 32px; /* Tambah padding header */
+  }
+
+  .nav-toggle {
+    display: none; /* Sembunyikan tombol menu di desktop */
+  }
+  
+  .nav-drawer {
+    position: static;
+    transform: none;
+    width: auto;
+    max-width: none;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+  }
+  
+  .nav-drawer ul {
+    flex-direction: row;
+    gap: 32px; /* Tambah space antar menu */
+    margin-right: 24px; /* Tambah margin kanan */
+  }
+  
+  .nav-drawer a {
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff; /* Pastikan text putih di desktop */
+    text-decoration: none; /* Remove underline */
+  }
+
+  .nav-drawer a[aria-current="page"] {
+    background: #242424; /* Page active abu-abu lebih terang */
+    border-radius: 12px;
+  }
+
+  /* Hover effect khusus desktop */
+  .nav-drawer a:hover:not([aria-current="page"]) {
+    background: #1a1a1a; /* Hover abu-abu gelap */
+    border-radius: 12px;
+  }
+}
+
+/* Rail container and section */
+.rail-container {
+  position: relative;
+  height: 400vh; /* Increased for better scroll range */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.rail {
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  width: 100%;
+  display: flex;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.rail-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s ease-out;
+}
+
+.rail-content {
+  width: min(90%, 1200px);
+  background: #121212;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.rail-image {
+  width: 100%;
+  height: 50vh; /* Reduced from 60vh */
+  overflow: hidden;
+}
+
+.rail-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rail-text {
+  padding: 24px; /* Reduced from 32px */
+  text-align: center;
+}
+
+.rail-text h2 {
+  font-size: 1.8rem; /* Reduced from 2rem */
+  margin: 0 0 12px; /* Reduced from 16px */
+}
+
+.rail-text p {
+  color: var(--muted);
+  margin: 0 0 24px;
+}
+
+/* Position cards */
+.rail-card:nth-child(2) { transform: translateX(100%); }
+.rail-card:nth-child(3) { transform: translateX(200%); }
